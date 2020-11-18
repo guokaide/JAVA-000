@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "custom.starter.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enables or disables the Custom Starter completely. If disabled, no Custom bean will be available in the application context."
+    },
+    {
+      "name": "custom.starter.stduents",
+      "type": "java.util.List<io.guokaide.customspringbootstarter.model.Student>",
+      "description": "Introduce a few students."
+    }
+  ]
+}
