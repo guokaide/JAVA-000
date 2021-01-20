@@ -16,6 +16,7 @@ public class KmqDemo {
         broker.createTopic(topic);
 
         KmqConsumer consumer = broker.createConsumer();
+        consumer.setConsumerName("test");
         consumer.subscribe(topic);
         final boolean[] flag = new boolean[1];
         flag[0] = true;

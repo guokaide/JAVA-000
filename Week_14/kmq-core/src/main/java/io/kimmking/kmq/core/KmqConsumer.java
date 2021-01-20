@@ -6,8 +6,14 @@ public class KmqConsumer<T> {
 
     private Kmq kmq;
 
+    private String consumerName;
+
     public KmqConsumer(KmqBroker broker) {
         this.broker = broker;
+    }
+
+    public void setConsumerName(String consumerName) {
+        this.consumerName = consumerName;
     }
 
     public void subscribe(String topic) {
@@ -16,7 +22,7 @@ public class KmqConsumer<T> {
     }
 
     public KmqMessage<T> poll(long timeout) {
-        return kmq.poll(timeout);
+        return kmq.poll(consumerName, timeout);
     }
 
 }
