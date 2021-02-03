@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.geekshell.mail.mapper.IOrderMapper">
+
+    <resultMap id="resultOrder" type="java.util.HashMap">
+        <result property="orderId" column="order_id"/>
+        <result property="createdTime" column="created_time"/>
+        <result property="userId" column="user_id"/>
+        <result property="orderTotalAmount" column="order_total_amount"/>
+        <result property="orderState" column="order_state"/>
+    </resultMap>
+    <sql id="insertColumns">
+        order_id,
+        created_time,
+        user_id,
+        order_total_amount
+    </sql>
+
+    <sql id="queryColumns">
+        order_id,
+        created_time,
+        user_id,
+        order_total_amount,
+        order_state
+    </sql>
+
+    <sql id="orderM">
+        #{orderM.orderId},
+        #{orderM.createdTime},
+        #{orderM.userId},
+        #{orderM.orderTotalAmount}
+    </sql>
+
+
+    <insert id="insert">
+        insert into t_order (<include refid="insertColumns" />)
+            values (<include refid="orderM" />)
+    </insert>
+
+    <select id="queryById" resultMap="resultOrder" >
+        select <include refid="queryColumns" /> from t_order
+        where order_id = #{id}
+    </select>
+
+</mapper>

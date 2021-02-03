@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.geekshell.mail.mapper.IOrderMapper">
+
+    <sql id="insertClumens">
+        order_id,
+        created_time,
+        user_id,
+        order_total_amount
+    </sql>
+
+    <sql id="orderM">
+        #{orderM.orderId},
+        #{orderM.createdTime},
+        #{orderM.userId},
+        #{orderM.orderTotalAmount}
+    </sql>
+
+
+    <insert id="insert">
+        insert into t_order (<include refid="insertClumens" />)
+            values (<include refid="orderM" />)
+    </insert>
+
+</mapper>

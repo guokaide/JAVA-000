@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.geekshell.mail.mapper.IOrderInfoMapper">
+    <insert id="insert">
+        insert into t_order_info (order_info_id,order_id,goods_id,goods_num)
+            values (#{orderInfo.orderInfoId},#{orderInfo.orderId},#{orderInfo.goodsId},#{orderInfo.goodsNum})
+    </insert>
+</mapper>
